@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="TimerApp_Tutorial.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TimerApp_Tutorial"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!-- Insert Bottom App Bar Here -->
+    <Page.BottomAppBar>
+        <CommandBar Background="DarkCyan" Foreground="White">
+            <AppBarButton Icon="Home" Foreground="White" Label="Home" Click="Home_Click" />
+            <AppBarButton Icon="Clock" Foreground="White" Label="Timer" Click="Timer_Click" />
+            <AppBarButton Icon="Help" Foreground="White" Label="About" Click="About_Click" />
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    <!-- Main Content Grid -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <!-- A minimum height of the logo banner is set so that the text is not clipped -->
+            <RowDefinition Height="1*" MinHeight="80"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Rectangle Fill="DarkCyan" VerticalAlignment="Top" Stretch="UniformToFill" />
+            <TextBlock Margin="10,10" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center">
+                TimerApp
+            </TextBlock>
+        </Grid>
+
+        <!-- Grid Row 1 - This is where page content is loaded -->
+        <Frame x:Name="frmMainFrame" Grid.Row="1" VerticalAlignment="Top">
+
+        </Frame>
+    </Grid>
+</Page>
