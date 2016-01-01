@@ -9,8 +9,7 @@ namespace TimerApp_Tutorial.ViewModels
 {
     public class TimerPresenter : BindableBase
     {
-        // PROPERTIES
-        // UI CAN ONLY READ
+        // Used to update the UI
         private string displayTime;
 
         public string DisplayTime
@@ -23,6 +22,7 @@ namespace TimerApp_Tutorial.ViewModels
             }
         }
 
+        // Passed in from the Home page
         private string selectedTime;
 
         public string SelectedTime
@@ -43,7 +43,7 @@ namespace TimerApp_Tutorial.ViewModels
         // The timer which ticks and calls the UpdateDisplayTime method
         DispatcherTimer mainTimer;
 
-        // Create time variables used during countdown
+        // Time variables used during countdown
         DateTime startingTime;
         TimeSpan remainingTime;
 
@@ -65,9 +65,7 @@ namespace TimerApp_Tutorial.ViewModels
             }
             else
             {
-                DisplayTime = TimeSpan.FromSeconds(0).ToString();
-                IsRunning = false;
-                mainTimer.Stop();
+                ResetTimer();
             }
         }
 
@@ -75,7 +73,7 @@ namespace TimerApp_Tutorial.ViewModels
         {
             // Calculate the decreasing gap between the totalCountdownTIme and ElpasedTime
             remainingTime = totalCountdownTime - elapsedTime;
-            // Show only the appropriate level of detail on the timer, by trimming the last few characters
+            // Show only the appropriate level of detail on the timer, by not displaying the last few characters
             DisplayTime = remainingTime.ToString().Substring(0, 11);
         }
 
